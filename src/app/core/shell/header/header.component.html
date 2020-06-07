@@ -1,0 +1,28 @@
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo hide-on-small-only" routerLink="/">{{app_name}}</a>
+
+      <ul id="nav-mobile" class="right">
+        <li *ngIf="!isLogged"><a routerLink="login" routerLinkActive="router-link-active">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!--
+<header>
+  <a routerLink="/" class="logo">
+    <span class="icon-home"></span>
+    <span>{{ app_name }}</span>
+  </a>
+
+  <a routerLink="login" routerLinkActive="router-link-active" class="button">
+    <span> Login </span>
+  </a>
+
+  <a routerLink="empresas" routerLinkActive="router-link" class="button">
+    <span> Empresas </span>
+  </a>
+</header>
+-->

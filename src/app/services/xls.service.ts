@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import * as XLSX from 'xlsx';
 
 type AOA = any[][];
@@ -9,11 +9,10 @@ type AOA = any[][];
 })
 export class XlsService {
   public data: AOA = [[1, 2], [3, 4]];
-  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
+  private excelObj = new BehaviorSubject<AOA>(null);
+  XLSAction$ = this.excelObj.asObservable();
 
-  constructor() {
-    console.log("ENTRA AL SERVICIO");
-  }
+  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 
   XLStoJSON(evt: any): Observable<AOA> {
     /* Leer el Archivo */
@@ -31,13 +30,14 @@ export class XlsService {
 
       /* save data */
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      this.XLSarreglo(this.data);
     };
     reader.readAsBinaryString(target.files[0]);
-    //setTimeout(() => {
-      //console.log("Espera 3 segundos");
-    //}, 3000);
     return of(this.data);
+  }
 
+  XLSarreglo(value: AOA): void {
+    this.excelObj.next(value);
   }
 
 }

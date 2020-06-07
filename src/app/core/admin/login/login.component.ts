@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import M from 'materialize-css/dist/js/materialize';
+//import M from 'materialize-css/dist/js/materialize';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   public isError = false;
 
   ngAfterViewInit() {
-    var elems = document.querySelectorAll('.modal');
-    M.Modal.init(elems, { dismissible: false });
+    //var elems = document.querySelectorAll('.modal');
+    //M.Modal.init(elems, { dismissible: false });
 
   }
 

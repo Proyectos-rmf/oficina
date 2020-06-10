@@ -1,4 +1,17 @@
 <header>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">{{app_name}}</a>
+
+    <ul class="navbar-nav">
+      <li *ngIf="!isLogged" class="nav-item active">
+        <a routerLink="login" routerLinkActive="router-link-active">Login <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!--
+<header>
   <nav>
     <div class="nav-wrapper">
       <a class="brand-logo hide-on-small-only" routerLink="/">{{app_name}}</a>
@@ -9,6 +22,7 @@
     </div>
   </nav>
 </header>
+-->
 
 <!--
 <header>

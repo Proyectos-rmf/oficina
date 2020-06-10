@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class HeaderComponent implements OnInit {
-  public isLogged: boolean = false;
+  public isLogged = false;
 
-  app_name: string="Empresa";
+  // tslint:disable-next-line: variable-name
+  app_name = 'Empresa';
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import M from 'materialize-css/dist/js/materialize';
+// import M from 'materialize-css/dist/js/materialize';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-  public correo: string = '';
-  public password: string = '';
+  public correo = '';
+  public password = '';
   public isError = false;
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit() {
-    //var elems = document.querySelectorAll('.modal');
-    //M.Modal.init(elems, { dismissible: false });
+    // var elems = document.querySelectorAll('.modal');
+    // M.Modal.init(elems, { dismissible: false });
 
   }
 
-  onLogin(){
-    console.log("Correo     ", this.correo);
-    console.log("Contraseña ", this.password);
+  onLogin() {
+    console.log('Correo     ', this.correo);
+    console.log('Contraseña ', this.password);
   }
 
   ngOnInit(): void {

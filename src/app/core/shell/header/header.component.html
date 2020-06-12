@@ -4,7 +4,7 @@
 
     <ul class="navbar-nav">
       <li *ngIf="!isLogged" class="nav-item active">
-        <a routerLink="login" routerLinkActive="router-link-active">Login <span class="sr-only">(current)</span></a>
+        <a routerLink="login" routerLinkActive="router-link-active" data-toggle="modal" data-target="#staticBackdrop">Login <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </nav>

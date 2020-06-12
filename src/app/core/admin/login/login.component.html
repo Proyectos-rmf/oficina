@@ -1,22 +1,32 @@
-<!-- max-width: 200px; margin: 0 auto; margin-top: 30px; -->
-
-  <div class="card mb-3; max-width: 200px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="../../../../assets/administrador.jpg" class="card-img" alt="Empresa" style="height: 6rem;">
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title w-100" id="staticBackdropLabel">Registrar Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="col-md-8">
-        <div class="card-body text-center">
-          <h5 class="card-title">EMPRESA</h5>
-          <a routerLink="/empresas/empresa">Registrate</a>
-          <!--
-            <a style="margin-left: 5rem;" routerLink="/users/selEmpresa">Seleccionar</a>
-          -->
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-sm">
+            <img src="../../../../assets/administrador.jpg" class="card-img" alt="Empresa" style="height: 6rem;">
+          </div>
+          <div class="col-sm">
+            <p>Regitra a tu empresa o institución y PRUEBA la aplicación sin costo por 3 meses.</p>
+          </div>
         </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" routerLink="/empresas/empresa">Registrate</button>
       </div>
     </div>
   </div>
-
+</div>
 
 
       <!--

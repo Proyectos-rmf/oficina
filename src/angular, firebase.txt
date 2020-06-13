@@ -1,0 +1,47 @@
+Limpiar
+
+npm cache clean --force
+eliminar nodejs
+
+instalar la versión mas reciente de nodejs
+npm install -g npm@latest
+npm cache clean
+npm set audit false
+
+npm uninstall -g angular-cli
+npm uninstall -g @angular/cli
+npm cache clean
+npm cache verify
+
+npm install -g @angular/cli@latest
+
+git config --global user.name "Ricardo Mascareno"
+git config --global user.email "ricardomascareo@hotmail.com"
+
+ng new <proyecto>
+
+npm i jquery -S
+npm i jquery-validation
+npm i materialize-css@next
+npm i @types/materialize-css
+npm i firebase @angular/fire -S
+
+angular.json
+ "styles": [
+              "src/styles.css",
+              "node_modules/materialize-css/dist/css/materialize.min.css"
+            ],
+"scripts": [
+             "node_modules/jquery/dist/jquery.min.js",
+             "node_modules/jquery-validation/dist/jquery.validate.min.js",
+             "node_modules/jquery-validation/dist/additional-methods.min.js",
+             "node_modules/jquery-validation/dist/localization/messages_es.min.js",
+	     "node_modules/materialize-css/dist/js/materialize.min.js"
+            ]
+
+npm install ngx-pagination --save
+
+app.module.ts
+
+import {NgxPaginationModule} from 'ngx-pagination';
+NgxPaginationModule

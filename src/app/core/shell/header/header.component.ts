@@ -5,13 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styles: []
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public isLogged = false;
 
   // tslint:disable-next-line: variable-name
   app_name = 'Empresa';
-
-  ngOnInit(): void {
-  }
 
 }

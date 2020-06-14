@@ -9,9 +9,7 @@ export class HeaderComponent implements OnInit {
   public isLogged = false;
 
   // tslint:disable-next-line: variable-name
-  app_name = 'Empresa';
-
-  constructor() { }
+  app_name = 'EMPRESA';
 
   ngOnInit(): void {
   }

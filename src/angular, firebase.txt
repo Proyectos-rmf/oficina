@@ -15,15 +15,11 @@ npm cache verify
 
 npm install -g @angular/cli@latest
 
-git config --global user.name "Ricardo Mascareno"
-git config --global user.email "ricardomascareo@hotmail.com"
-
 ng new <proyecto>
 
 npm i jquery -S
 npm i jquery-validation
-npm i materialize-css@next
-npm i @types/materialize-css
+
 npm i firebase @angular/fire -S
 
 angular.json
@@ -39,9 +35,40 @@ angular.json
 	     "node_modules/materialize-css/dist/js/materialize.min.js"
             ]
 
-npm install ngx-pagination --save
-
 app.module.ts
 
-import {NgxPaginationModule} from 'ngx-pagination';
-NgxPaginationModule
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
+app.component.html
+
+import {TranslateService} from '@ngx-translate/core';
+import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
+
+import defaultLanguage from "./../assets/i18n/en.json";
+
+fromCode = _('demo.text-in-code');
+
+    constructor(private translate: TranslateService) {
+        translate.setTranslation('en', defaultLanguage);
+        translate.setDefaultLang('en');
+    }
+
+    useLanguage(language: string) {
+        this.translate.use(language);
+    }
+

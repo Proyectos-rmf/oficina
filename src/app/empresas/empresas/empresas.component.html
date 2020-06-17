@@ -1,11 +1,24 @@
+<div class="container py-3">
+  <div class="row">
+      <!-- <div class="col-sm-8 mx-auto my-auto"> -->
+          <div class="input-group mb-3">
+              <div class="custom-file">
+                  <input type="file" (change)="onFileChange($event)" class="custom-file-input" id="inputGroupFile">
+                  <label class="custom-file-label" for="inputGroupFile" aria-describedby="inputGroupFileAddon">Elija Archivo con extension XLSX
+                  </label>
+              </div>
+          </div>
 
-<input type="file" (change)="onFileChange($event)" multiple="false" />
-	<table class="sjs-table">
-		<tbody>
-      <tr *ngFor="let row of datos">
-			<td *ngFor="let val of row">
-				{{val}}
-			</td>
-		</tr>
-    </tbody>
-	</table>
+          <table class="sjs-table">
+            <tbody>
+                <tr *ngFor="let row of datos">
+                  <td *ngFor="let val of row">
+                    {{val}}
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+      <!-- </div> -->
+  </div>
+</div>
+

@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../../models/empresa';
-import { XlsService } from "../../services/xls.service";
-import { UtilService } from "../../services/util.service";
+import { XlsService } from '../../services/xls.service';
+import { UtilService } from '../../services/util.service';
+
+declare var $: any;
 
 @Component({
   selector: 'app-empresas',
   templateUrl: './empresas.component.html',
-  styles: []
+  styleUrls: ['./empresas.component.css']
 })
-export class EmpresasComponent {
+export class EmpresasComponent implements OnInit {
   public datos: any[][];
   public XLSarr$ = this.XLSX.XLSAction$;
 
@@ -22,23 +24,29 @@ export class EmpresasComponent {
     ciudad_Emp: '',
     Estado_Emp: '',
     telefono_Emp: 0
-  }
+  };
 
-   onFileChange(evt: any) {
+  onFileChange(evt: any) {
+
+    console.log('Entra');
     this.XLSX.XLStoJSON(evt).subscribe(datos => {
       setTimeout(() => {
-        this.XLSarr$.subscribe(res=>{ this.datos = res; });
+        this.XLSarr$.subscribe(res => { this.datos = res; });
         console.log(this.datos);
         this.imprimir_datos(1);
       }, 100);
     });
   }
 
-  imprimir_datos(datos: number){
-    //console.log(this.data);
-    //console.log(this.data[0].length);
-    //console.log(this.data[1].length);
-    //console.log(this.data[1][1]);
+  ngOnInit(): void {
+    this.Jquey();
+  }
+
+  imprimir_datos(datos: number) {
+    // console.log(this.data);
+    // console.log(this.data[0].length);
+    // console.log(this.data[1].length);
+    // console.log(this.data[1][1]);
     switch (datos) {
       case 1:
         this.Empresas.nombre_Emp   = this.datos[1][0];
@@ -51,11 +59,22 @@ export class EmpresasComponent {
 
         this.UTIL.Variables(this.Empresas);
         console.log(this.Empresas);
-      break;
+        break;
 
       default:
         break;
     }
   }
 
+  Jquey() {
+    // tslint:disable-next-line: only-arrow-functions
+    $(document).ready(function() {
+
+      $('#inputGroupFile').on('change', function(e) {
+        const fileName = e.target.files[0].name;
+        $(this).next('.custom-file-label').html(fileName);
+      });
+
+    });
+  }
 }

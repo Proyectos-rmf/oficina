@@ -76,6 +76,8 @@ export class EmpresasComponent implements OnInit {
         $(this).next('.custom-file-label').html(fileName);
       });
 
+      $('.toast').toast('show');
+
     });
   }
 }

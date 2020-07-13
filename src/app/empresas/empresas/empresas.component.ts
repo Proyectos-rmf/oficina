@@ -77,13 +77,13 @@ export class EmpresasComponent implements OnInit {
         $(this).next('.custom-file-label').html(fileName);
       });
 
-      // $(".show-toast").click(function(){
-        $("#myToast").toast({ delay: 3000 });
-        $("#myToast").toast('show');
-      // });
+      $('#myToast').toast({ delay: 3000 });
+      $('#myToast').toast('show');
 
-      // $('.toast').toast('show');
-      // $('[data-toggle="popover"]').popover();
+      $('[data-toggle="popover"]').popover({
+        placement : 'top'
+      });
+
     });
   }
 }

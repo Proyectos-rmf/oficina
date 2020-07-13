@@ -7,7 +7,8 @@ declare var $: any;
 
 @Component({
   selector: 'app-empresas',
-  templateUrl: './empresas.component.html'
+  templateUrl: './empresas.component.html',
+  styleUrls: ['./empresas.component.css']
 })
 export class EmpresasComponent implements OnInit {
   public datos: any[][];
@@ -76,8 +77,13 @@ export class EmpresasComponent implements OnInit {
         $(this).next('.custom-file-label').html(fileName);
       });
 
-      $('.toast').toast('show');
+      // $(".show-toast").click(function(){
+        $("#myToast").toast({ delay: 3000 });
+        $("#myToast").toast('show');
+      // });
 
+      // $('.toast').toast('show');
+      // $('[data-toggle="popover"]').popover();
     });
   }
 }

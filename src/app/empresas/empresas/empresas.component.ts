@@ -81,7 +81,8 @@ export class EmpresasComponent implements OnInit {
       $('#myToast').toast('show');
 
       $('[data-toggle="popover"]').popover({
-        placement : 'top'
+        placement : 'bottom',
+        trigger: 'hover'
       });
 
     });

@@ -7,13 +7,13 @@ declare var $: any;
 
 @Component({
   selector: 'app-empresas',
-  templateUrl: './empresas.component.html',
-  styleUrls: ['./empresas.component.css']
+  templateUrl: './empresas.component.html'
 })
 export class EmpresasComponent implements OnInit {
   public datos: any[][];
   public XLSarr$ = this.XLSX.XLSAction$;
   public cargar = false;
+  public desplegar = true;
 
   constructor(private XLSX: XlsService, private UTIL: UtilService) { }
 
@@ -36,6 +36,7 @@ export class EmpresasComponent implements OnInit {
         console.log(this.datos);
         this.imprimir_datos(1);
         this.cargar = true;
+        this.desplegar = false;
       }, 100);
     });
   }

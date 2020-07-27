@@ -1,0 +1,58 @@
+<div class="container py-3">
+
+  <div class="row">
+    <div class="col" *ngIf="mostrar">
+      <div class="mb-3">
+        <div class="custom-file">
+            <input type="file" (change)="onFileChange($event)" class="custom-file-input" id="inputGroupFile">
+            <label class="custom-file-label" for="inputGroupFile" aria-describedby="inputGroupFileAddon" data-browse="Seleccione ....">Elija Empresa o Insitutción, extension XLSX</label>
+        </div>
+      </div>
+    </div>
+
+    <div data-toggle="popover" data-placement="bottom" data-trigger="hover"
+          title="Descargar datos ..." data-content="Los datos de la EMPRESA se pueden MODIFICAR">
+
+      <button class="btn btn-outline-secondary" (click)="cargar=false; mostrar=false" [hidden]=!cargar type="button"
+         data-toggle="collapse" data-target="#collapseEmpresa" aria-expanded="false" aria-controls="collapseEmpresa">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+          <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+          <path fill-rule="evenodd" d="M5.646 9.146a.5.5 0 0 1 .708 0L8 10.793l1.646-1.647a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0v-4A.5.5 0 0 1 8 6z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div *ngIf="desplegar">
+      <div class="col">
+        <div class="mb-3">
+          <button class="btn btn-primary" (click)="desplegar=false; mostrar=false" type="button" data-toggle="collapse"
+                  data-target="#collapseEmpresa" aria-expanded="false" aria-controls="collapseEmpresa">
+            Dar de alta a la Empresa o Institución
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+    <table class="sjs-table">
+      <tbody>
+          <tr *ngFor="let row of datos">
+            <td *ngFor="let val of row">
+              {{val}}
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  -->
+
+  <div class="collapse" id="collapseEmpresa">
+    <div class="mb-3 text-muted text-center">DATOS DE LA EMPRESA</div>
+    <div class="card card-body" *ngIf="!desplegar && !cargar">
+        <app-detalle-empresa></app-detalle-empresa>
+    </div>
+  </div>
+
+</div>

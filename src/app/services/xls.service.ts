@@ -16,8 +16,8 @@ export class XlsService {
 
   XLStoJSON(evt: any): Observable<AOA> {
     /* Leer el Archivo */
-    const target: DataTransfer = <DataTransfer>(evt.target);
-    if (target.files.length !== 1) throw new Error('No se puede usar multiples archivos');
+    const target: DataTransfer = (evt.target) as DataTransfer;
+    if (target.files.length !== 1) { throw new Error('No se puede usar multiples archivos'); }
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
       /* read workbook */
@@ -29,7 +29,7 @@ export class XlsService {
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
       /* save data */
-      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      this.data = ((XLSX.utils.sheet_to_json(ws, { header: 1 })) as AOA);
       this.XLSarreglo(this.data);
     };
     reader.readAsBinaryString(target.files[0]);

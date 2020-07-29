@@ -5,7 +5,8 @@ import { UtilService } from './../../services/util.service';
 
 @Component({
   selector: 'app-detalle-empresa',
-  templateUrl: './detalle-empresa.component.html'
+  templateUrl: './detalle-empresa.component.html',
+  styleUrls: ['./detalle-empresa.component.css']
 })
 export class DetalleEmpresaComponent implements OnInit {
   empresaForm = this.fb.group({

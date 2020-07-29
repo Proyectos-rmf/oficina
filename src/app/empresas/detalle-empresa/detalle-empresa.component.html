@@ -1,168 +1,164 @@
-<div class="row">
-  <div class="col">
-    <form
-      class="needs-validation"
-      novalidate
-      [formGroup]="empresaForm"
-      (ngSubmit)="onSubmit()"
-    >
-      <div class="form-group row">
-        <label for="validaNombre" class="col-md-2 col-form-label">Nombre</label>
-          <div class="col-md-10">
-            <input
-              type="text"
-              class="form-control"
-              id="validaNombre"
-              placeholder="Nombre de la Organización"
-              formControlName="nombre_Emp"
-              [ngClass]="{ 'is-invalid': isValidField('nombre_Emp') }"
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="isError('nombre_Emp','required')">
-                Introduzca el nombre de la Empresa
-              </span>
-              <span *ngIf="isError('nombre_Emp','minlength')">
-                Mínimo {{ isError('nombre_Emp','minlength?') }} caracteres.
-              </span>
-            </div>
-          </div>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-md-6">
-          <label for="validaCalle">Calle</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validaCalle"
-              placeholder="Nombre de la Calle"
-              formControlName="calle_Emp"
-              [ngClass]="{ 'is-invalid': isValidField('calle_Emp') }"
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="isError('calle_Emp','required')">
-                Introduzca el nombre de la Calle
-              </span>
-              <span *ngIf="isError('calle_Emp','minlength')">
-                Mínimo {{ isError('calle_Emp','minlength?') }} caracteres.
-              </span>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-          <label for="validaColonia">Colonia</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validaColonia"
-              placeholder="Nombre de la Colonia"
-              formControlName="colonia_Emp"
-              [ngClass]="{ 'is-invalid': isValidField('colonia_Emp') }"
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="isError('colonia_Emp','required')">
-                Introduzca el nombre de la colonia
-              </span>
-              <span *ngIf="isError('colonia_Emp','minlength')">
-                Mínimo {{ isError('colonia_Emp','minlength?') }} caracteres.
-              </span>
-            </div>
+<form
+  class="needs-validation"
+  novalidate
+  [formGroup]="empresaForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group row">
+    <label for="validaNombre" class="col-xl-2 col-form-label-sm">Nombre</label>
+      <div class="col-xl-10">
+        <input
+          type="text"
+          class="form-control form-control-sm is-valid"
+          id="validaNombre"
+          placeholder="Nombre de la Organización"
+          formControlName="nombre_Emp"
+          [ngClass]="{ 'is-invalid': isValidField('nombre_Emp') }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="isError('nombre_Emp','required')">
+            Introduzca el nombre de la Empresa
+          </span>
+          <span *ngIf="isError('nombre_Emp','minlength')">
+            Mínimo {{ isError('nombre_Emp','minlength?') }} caracteres.
+          </span>
         </div>
       </div>
-
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="validaCiudad">Ciudad</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validaCiudad"
-            placeholder="Ciudad"
-            formControlName="ciudad_Emp"
-            [ngClass]="{ 'is-invalid': isValidField('ciudad_Emp') }"
-          />
-          <div class="invalid-feedback">
-            <span *ngIf="isError('ciudad_Emp','required')">
-              Intorduzca el nombre de la Ciudad.
-            </span>
-            <span *ngIf="isError('ciudad_Emp','minlength')">
-              Mínimo de {{ isError('ciudad_Emp','minlength?') }} caracteres.
-            </span>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="validaEstado">Estado</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validaEstado"
-            placeholder="Estado"
-            formControlName="estado_Emp"
-            [ngClass]="{ 'is-invalid': isValidField('estado_Emp') }"
-          />
-          <div class="invalid-feedback">
-            <span *ngIf="isError('estado_Emp','required')">
-              Introduzca el nombre del estado.
-            </span>
-            <span *ngIf="isError('estado_Emp','minlength')">
-              Mínimo de {{ isError('estado_Emp','minlength?') }} caracteres.
-            </span>
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="validaCp">Código Postal</label>
-          <input
-            type="text"
-            class="form-control"
-            id="validaCp"
-            placeholder="Código Postal"
-            formControlName="cp_Emp"
-            [ngClass]="{ 'is-invalid': isValidField('cp_Emp') }"
-            maxlength="5"
-          />
-          <div class="invalid-feedback">
-            <span *ngIf="isError('cp_Emp','required')">
-              Introduzca el Código Postal
-            </span>
-            <span *ngIf="isError('cp_Emp','minlength')">
-              Mínimo de {{ isError('cp_Emp','minlength?') }} caracteres.
-            </span>
-            <span *ngIf="isError('cp_Emp','pattern')">
-              El código Postal debe ser numérico.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="validaTelefono" class="col-md-2 col-form-label">Teléfono</label>
-          <div class="col-md-10">
-            <input
-              type="text"
-              class="form-control"
-              id="validaTelefono"
-              placeholder="Número de teléfono"
-              formControlName="telefono_Emp"
-              [ngClass]="{ 'is-invalid': isValidField('telefono_Emp') }"
-              maxlength="10"
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="isError('telefono_Emp','required')">
-                Introduzca el número de teléfono
-              </span>
-              <span *ngIf="isError('telefono_Emp','minlength')">
-                Mínimo {{ isError('telefono_Emp','minlength?') }} caracteres.
-              </span>
-              <span *ngIf="isError('telefono_Emp','pattern')">
-                El Teléfono debe ser numérico.
-              </span>
-            </div>
-          </div>
-      </div>
-
-      <div class="float-left"><button class="btn btn-info" (click)="onReset()">Limpiar</button></div>
-      <div class="float-right"><button type="submit" class="btn btn-primary" [disabled]="empresaForm.invalid">Guardar</button>
-      </div>
-    </form>
   </div>
-</div>
+
+  <div class="form-group row">
+    <div class="col-sm-6">
+      <label for="validaCalle" class="col-form-label-sm">Calle</label>
+        <input
+          type="text"
+          class="form-control form-control-sm is-valid"
+          id="validaCalle"
+          placeholder="Nombre de la Calle"
+          formControlName="calle_Emp"
+          [ngClass]="{ 'is-invalid': isValidField('calle_Emp') }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="isError('calle_Emp','required')">
+            Introduzca el nombre de la Calle
+          </span>
+          <span *ngIf="isError('calle_Emp','minlength')">
+            Mínimo {{ isError('calle_Emp','minlength?') }} caracteres.
+          </span>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="validaColonia" class="col-form-label-sm">Colonia</label>
+        <input
+          type="text"
+          class="form-control form-control-sm is-valid"
+          id="validaColonia"
+          placeholder="Nombre de la Colonia"
+          formControlName="colonia_Emp"
+          [ngClass]="{ 'is-invalid': isValidField('colonia_Emp') }"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="isError('colonia_Emp','required')">
+            Introduzca el nombre de la colonia
+          </span>
+          <span *ngIf="isError('colonia_Emp','minlength')">
+            Mínimo {{ isError('colonia_Emp','minlength?') }} caracteres.
+          </span>
+        </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <label for="validaCiudad" class="col-form-label-sm">Ciudad</label>
+      <input
+        type="text"
+        class="form-control form-control-sm is-valid"
+        id="validaCiudad"
+        placeholder="Ciudad"
+        formControlName="ciudad_Emp"
+        [ngClass]="{ 'is-invalid': isValidField('ciudad_Emp') }"
+      />
+      <div class="invalid-feedback">
+        <span *ngIf="isError('ciudad_Emp','required')">
+          Intorduzca el nombre de la Ciudad.
+        </span>
+        <span *ngIf="isError('ciudad_Emp','minlength')">
+          Mínimo de {{ isError('ciudad_Emp','minlength?') }} caracteres.
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <label for="validaEstado" class="col-form-label-sm">Estado</label>
+      <input
+        type="text"
+        class="form-control form-control-sm is-valid"
+        id="validaEstado"
+        placeholder="Estado"
+        formControlName="estado_Emp"
+        [ngClass]="{ 'is-invalid': isValidField('estado_Emp') }"
+      />
+      <div class="invalid-feedback">
+        <span *ngIf="isError('estado_Emp','required')">
+          Introduzca el nombre del estado.
+        </span>
+        <span *ngIf="isError('estado_Emp','minlength')">
+          Mínimo de {{ isError('estado_Emp','minlength?') }} caracteres.
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <label for="validaCp" class="col-form-label-sm">C.P.</label>
+      <input
+        type="text"
+        class="form-control form-control-sm is-valid"
+        id="validaCp"
+        placeholder="Código Postal"
+        formControlName="cp_Emp"
+        [ngClass]="{ 'is-invalid': isValidField('cp_Emp') }"
+        maxlength="5"
+      />
+      <div class="invalid-feedback">
+        <span *ngIf="isError('cp_Emp','required')">
+          Introduzca el Código Postal
+        </span>
+        <span *ngIf="isError('cp_Emp','minlength')">
+          Mínimo de {{ isError('cp_Emp','minlength?') }} caracteres.
+        </span>
+        <span *ngIf="isError('cp_Emp','pattern')">
+          El código Postal debe ser numérico.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="validaTelefono" class="col-xl-2 col-form-label-sm">Teléfono</label>
+      <div class="col-xl-10">
+        <input
+          type="text"
+          class="form-control form-control-sm is-valid"
+          id="validaTelefono"
+          placeholder="Número de teléfono"
+          formControlName="telefono_Emp"
+          [ngClass]="{ 'is-invalid': isValidField('telefono_Emp') }"
+          maxlength="10"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="isError('telefono_Emp','required')">
+            Introduzca el número de teléfono
+          </span>
+          <span *ngIf="isError('telefono_Emp','minlength')">
+            Mínimo {{ isError('telefono_Emp','minlength?') }} caracteres.
+          </span>
+          <span *ngIf="isError('telefono_Emp','pattern')">
+            El Teléfono debe ser numérico.
+          </span>
+        </div>
+      </div>
+  </div>
+
+  <div class="float-left"><button class="btn btn-info" (click)="onReset()">Limpiar</button></div>
+  <div class="float-right"><button type="submit" class="btn btn-primary" [disabled]="empresaForm.invalid">Guardar</button>
+  </div>
+</form>

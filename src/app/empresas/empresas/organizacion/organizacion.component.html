@@ -50,9 +50,13 @@
 
   <div class="collapse" id="collapseEmpresa">
     <div class="mb-3 text-muted text-center">DATOS DE LA EMPRESA</div>
-    <div class="card card-body" *ngIf="!desplegar && !cargar">
-        <app-detalle-empresa></app-detalle-empresa>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <div class="card card-body" *ngIf="!desplegar && !cargar">
+          <app-detalle-empresa></app-detalle-empresa>
+        </div>
     </div>
+  </div>
   </div>
 
 </div>

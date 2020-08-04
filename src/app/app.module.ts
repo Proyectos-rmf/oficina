@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { environment } from 'src/environments/environment';
 
-/* Firebase
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
+/* Firebase */
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
- */
+
 
 @NgModule({
   declarations: [
@@ -19,11 +20,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
-    /* AngularFireModule.initializeApp(environment.firebaseConfig),
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireAuthModule */
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [/* { provide: StorageBucket, useValue: 'gs://ngblog-eab58.appspot.com' }*/ ],
   bootstrap: [AppComponent]

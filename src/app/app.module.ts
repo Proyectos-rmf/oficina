@@ -26,7 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [/* { provide: StorageBucket, useValue: 'gs://ngblog-eab58.appspot.com' }*/ ],
+  providers: [ /* { provide: StorageBucket, useValue: 'gs://ofpempresas.appspot.com' } */ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 export interface Empresa {
+  id?: string;
   nombre_Emp?: string;
   calle_Emp?: string;
   colonia_Emp?: string;

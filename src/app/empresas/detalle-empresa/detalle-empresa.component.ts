@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { UtilService } from './../../services/util.service';
+import { CrudService } from '../empresas.service';
 
 @Component({
   selector: 'app-detalle-empresa',
@@ -23,7 +24,7 @@ export class DetalleEmpresaComponent implements OnInit {
   public Empresa$ = this.UTIL.ApuntadorAction$;
   public Error;
 
-  constructor(private UTIL: UtilService, private fb: FormBuilder) { }
+  constructor(private UTIL: UtilService, private fb: FormBuilder, private crudApi: CrudService ) { }
 
   ngOnInit(): void {
      this.Empresa$.subscribe(res => { this.datos = res; });
@@ -55,6 +56,7 @@ export class DetalleEmpresaComponent implements OnInit {
   onSubmit(): void {
     console.log('Form->' + JSON.stringify(this.empresaForm.value));
     console.log(this.empresaForm.value);
+    this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa');
   }
 
   isError(campo: string, tipo: string): string {

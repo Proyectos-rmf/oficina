@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+// import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 
 export interface Student {
@@ -13,14 +14,14 @@ export interface Student {
 })
 
 export class CrudService {
-  studentsRef: AngularFireList<any>;
-  studentRef: AngularFireObject<any>;
+  crudsRef: AngularFireList<any>;
+  crudRef: AngularFireObject<any>;
 
   constructor(private db: AngularFireDatabase) { }
 
   // Create Student
-  AddStudent(student: Student) {
-    this.studentsRef.push({
+  AddCrud(student: Student) {
+    this.crudsRef.push({
       firstName: student.firstName,
       lastName: student.lastName,
       email: student.email,
@@ -29,20 +30,20 @@ export class CrudService {
   }
 
   // Fetch Single Student Object
-  GetStudent(id: string) {
-    this.studentRef = this.db.object('students-list/' + id);
-    return this.studentRef;
+  GetCrud(id: string) {
+    this.crudRef = this.db.object('students-list/' + id);
+    return this.crudRef;
   }
 
   // Fetch Students List
-  GetStudentsList() {
-    this.studentsRef = this.db.list('students-list');
-    return this.studentsRef;
+  GetCrudList() {
+    this.crudsRef = this.db.list('students-list');
+    return this.crudsRef;
   }
 
   // Update Student Object
-  UpdateStudent(student: Student) {
-    this.studentRef.update({
+  UpdateCrud(student: Student) {
+    this.crudRef.update({
       firstName: student.firstName,
       lastName: student.lastName,
       email: student.email,
@@ -51,8 +52,8 @@ export class CrudService {
   }
 
   // Delete Student Object
-  DeleteStudent(id: string) {
-    this.studentRef = this.db.object('students-list/' + id);
-    this.studentRef.remove();
+  DeleteCrud(id: string) {
+    this.crudRef = this.db.object('students-list/' + id);
+    this.crudRef.remove();
   }
 }

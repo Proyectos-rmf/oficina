@@ -6,12 +6,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { environment } from 'src/environments/environment';
 
-/* Firebase */
+/* Importar FireBase */
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -22,11 +19,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AppRoutingModule,
     CoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireStorageModule
   ],
-  providers: [ /* { provide: StorageBucket, useValue: 'gs://ofpempresas.appspot.com' } */ ],
+  providers: [ { provide: BUCKET, useValue: 'gs://ofpempresas.appspot.com' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

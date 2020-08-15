@@ -24,6 +24,7 @@
     "firebase": "^7.17.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "sweetalert2": "^9.17.1",
     "tslib": "^1.10.0",
     "xlsx": "^0.16.0",
     "zone.js": "~0.10.2"

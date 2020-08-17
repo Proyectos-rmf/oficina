@@ -60,78 +60,41 @@ export class DetalleEmpresaComponent implements OnInit {
     swal.queue([{
       allowOutsideClick: false,
       allowEscapeKey: false,
-      title: 'aaaaa',
+      title: 'Guardando Información ...',
       showConfirmButton: false,
       showCloseButton: false,
       showCancelButton: false,
       onOpen: () => {
-          swal.showLoading();
-          return fetch(ipAPI, {
-              method: 'POST',
-              body: 'viendo',
-              headers: {
-                  'Accept': 'application/json, text/plain, */*',
-                  'Content-Type': 'application/x-www-form-urlencoded',
+        swal.showLoading();
+        return fetch(ipAPI)
+          .then(data => {
+              swal.hideLoading();
+              if (data.statusText === 'OK') {
+                this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
+                .then((res) => {
+                  swal.fire({
+                    icon: 'success',
+                    title: 'Empresa Creada',
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    timer: 2000
+                  });
+                }).catch(err =>  {
+                    console.log('err', err.message);
+                  });
               }
           })
-                  .then(response => response.json())
-                  .then(data => {
-                      swal.hideLoading();
-                      if (data.status === 'success') {
-                          swal.update({
-                              allowEscapeKey: false,
-                              allowOutsideClick: false,
-                              showConfirmButton: false,
-                              showCloseButton: false,
-                              showCancelButton: false,
-                              type: 'success',
-                              title: false,
-                              html: data.html
-                          });
-                      } else {
-                          swal.update({
-                              icon: 'error',
-                              title: false,
-                              html: data.html,
-                              allowEscapeKey: true,
-                              allowOutsideClick: true,
-                              showConfirmButton: true,
-                          });
-                      }
-                  })
-                  .catch(() => {
-                      swal.hideLoading();
-                      swal.update({
-                          icon: 'error',
-                          title: 'Save request error!',
-                          html: false
-                      });
-                  });
+          .catch(() => {
+              swal.hideLoading();
+              swal.fire({
+                icon: 'error',
+                title: 'Favor de verificar el servidor o conexión a Internet!',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              });
+          });
       }
-  }]);
-
-
-/*
-    swal.fire({
-
-      title: 'Guardando Información ...',
-      showConfirmButton: false,
-    });
-*/
-
-    this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
-      .then((res) => {
-        /* swal.fire({
-          icon: 'success',
-          title: 'Empresa Creada',
-          showConfirmButton: false,
-          allowOutsideClick: false,
-          timer: 2000
-        }); */
-      })
-      .catch(err =>  {
-        console.log('err', err.message);
-      });
+    }]);
   }
 
   isError(campo: string, tipo: string): string {

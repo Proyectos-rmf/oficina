@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { UtilService } from './../../services/util.service';
 import { CrudService } from '../empresas.service';
-import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-empresa',
@@ -24,6 +23,7 @@ export class DetalleEmpresaComponent implements OnInit {
   public datos: any[][];
   public Empresa$ = this.UTIL.ApuntadorAction$;
   public Error;
+  private conecta = false;
 
   constructor(private UTIL: UtilService, private fb: FormBuilder, private crudApi: CrudService ) { }
 
@@ -55,46 +55,19 @@ export class DetalleEmpresaComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const ipAPI = '//api.ipify.org?format=json';
+    if (navigator.onLine) {
+      this.UTIL.msjwsal('carga');
 
-    swal.queue([{
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      title: 'Guardando Información ...',
-      showConfirmButton: false,
-      showCloseButton: false,
-      showCancelButton: false,
-      onOpen: () => {
-        swal.showLoading();
-        return fetch(ipAPI)
-          .then(data => {
-              swal.hideLoading();
-              if (data.statusText === 'OK') {
-                this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
-                .then((res) => {
-                  swal.fire({
-                    icon: 'success',
-                    title: 'Empresa Creada',
-                    showConfirmButton: false,
-                    allowOutsideClick: false,
-                    timer: 2000
-                  });
-                }).catch(err =>  {
-                    console.log('err', err.message);
-                  });
-              }
-          })
-          .catch(() => {
-              swal.hideLoading();
-              swal.fire({
-                icon: 'error',
-                title: 'Favor de verificar el servidor o conexión a Internet!',
-                allowOutsideClick: false,
-                allowEscapeKey: false
-              });
-          });
-      }
-    }]);
+      this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
+      .then((res) => {
+        this.conecta = true;
+        this.UTIL.msjwsal('fire', 'success', 'Empresa Creada', false, false, false, 2000, true);
+      });
+
+      this.UTIL.msjwsal('fire', 'error', 'La base de datos no esta DISPONIBLE', false, false, false, 0, this.conecta);
+    } else {
+      this.UTIL.msjwsal('fire', 'error', 'No tienes acceso a INTERNET, espere un momento ...', false, false, false, 3000, !this.conecta);
+     }
   }
 
   isError(campo: string, tipo: string): string {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,30 @@ export class UtilService {
 
   Variables(value: any): void {
     this.apuntador.next(value);
+  }
+
+  msjwsal(cual: string, icono?: any, titulo?: any, op1?: any, op2?: any, op3?: any, op4?: any, entra?: boolean): void {
+    switch (cual) {
+      case 'carga':
+        swal.showLoading();
+        break;
+
+        case 'fire':
+          if (entra) {
+            swal.fire({
+              icon: icono,
+              title: titulo,
+              allowOutsideClick: op1,
+              allowEscapeKey: op2,
+              showConfirmButton: op3,
+              timer: op4
+            });
+          }
+          break;
+
+      default:
+        break;
+    }
   }
 
   Errores(Errors: string, tipo: string): string {

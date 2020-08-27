@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import M from 'materialize-css/dist/js/materialize';
 
+declare var $: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,6 +28,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Jquery();
+  }
+
+  Jquery() {
+    // tslint:disable-next-line: only-arrow-functions
+    $(document).ready(function() {
+      setTimeout('$(\'#Modal\').modal(\'hide\');', 4000);
+    });
   }
 
 }

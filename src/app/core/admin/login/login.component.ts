@@ -28,13 +28,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Jquery();
+    // this.Jquery();
   }
 
   Jquery() {
     // tslint:disable-next-line: only-arrow-functions
     $(document).ready(function() {
-      setTimeout('$(\'#Modal\').modal(\'hide\');', 4000);
+      setTimeout('$(\'#Modal\').modal(\'hide\');', 8000);
     });
   }
 

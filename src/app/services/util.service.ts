@@ -40,15 +40,12 @@ export class UtilService {
           case 'fire':
           if (entra) {
             swal.fire({
-              // footer: 'Registar Empresa',
-              html: '<b>Registrar Empresa</b>' +
-                     '<hr>',
-              // icon: icono,
-              // title: titulo,
-              // allowOutsideClick: op1,
-              // allowEscapeKey: op2,
-              // showConfirmButton: op3,
-              // timer: op4
+               icon: icono,
+               title: titulo,
+               allowOutsideClick: op1,
+               allowEscapeKey: op2,
+               showConfirmButton: op3,
+               timer: op4
             });
           }
           break;

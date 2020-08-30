@@ -87,4 +87,5 @@ export class DetalleEmpresaComponent implements OnInit {
   onReset(): void {
     this.empresaForm.reset();
   }
+
 }

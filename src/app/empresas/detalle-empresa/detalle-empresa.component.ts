@@ -80,7 +80,6 @@ export class DetalleEmpresaComponent implements OnInit {
   onReset(): void {
     this.empresaForm.reset();
   }
-
   nuevaEmpresa() {
     this.UTIL.msjwsal('carga');
     this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
@@ -92,4 +91,5 @@ export class DetalleEmpresaComponent implements OnInit {
 
     this.UTIL.msjwsal('fire', 'error', 'La base de datos no esta DISPONIBLE', false, false, false, 0, this.conecta);
   }
+
 }

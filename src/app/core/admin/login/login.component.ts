@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 // import M from 'materialize-css/dist/js/materialize';
-
-declare var $: any;
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: []
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   constructor() { }
   public correo = '';
@@ -25,17 +23,6 @@ export class LoginComponent implements OnInit {
   onLogin() {
     console.log('Correo     ', this.correo);
     console.log('Contraseña ', this.password);
-  }
-
-  ngOnInit(): void {
-    // this.Jquery();
-  }
-
-  Jquery() {
-    // tslint:disable-next-line: only-arrow-functions
-    $(document).ready(function() {
-      setTimeout('$(\'#Modal\').modal(\'hide\');', 8000);
-    });
   }
 
 }

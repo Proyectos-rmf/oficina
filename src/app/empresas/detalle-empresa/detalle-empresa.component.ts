@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UtilService } from './../../services/util.service';
 import { CrudService } from '../empresas.service';
@@ -25,7 +26,7 @@ export class DetalleEmpresaComponent implements OnInit {
   public Error;
   private conecta = false;
 
-  constructor(private UTIL: UtilService, private fb: FormBuilder, private crudApi: CrudService ) { }
+  constructor(private UTIL: UtilService, private fb: FormBuilder, private crudApi: CrudService, private router: Router ) { }
 
   ngOnInit(): void {
      this.Empresa$.subscribe(res => { this.datos = res; });
@@ -56,15 +57,7 @@ export class DetalleEmpresaComponent implements OnInit {
 
   onSubmit(): void {
     if (navigator.onLine) {
-      this.UTIL.msjwsal('carga');
-
-      this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
-      .then((res) => {
-        this.conecta = true;
-        this.UTIL.msjwsal('fire', 'success', 'Empresa Creada', false, false, false, 2000, true);
-      });
-
-      this.UTIL.msjwsal('fire', 'error', 'La base de datos no esta DISPONIBLE', false, false, false, 0, this.conecta);
+      this.nuevaEmpresa();
     } else {
       this.UTIL.msjwsal('fire', 'error', 'No tienes acceso a INTERNET, espere un momento ...', false, false, false, 3000, !this.conecta);
      }
@@ -86,5 +79,17 @@ export class DetalleEmpresaComponent implements OnInit {
 
   onReset(): void {
     this.empresaForm.reset();
+  }
+
+  nuevaEmpresa() {
+    this.UTIL.msjwsal('carga');
+    this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
+    .then((res) => {
+      this.conecta = true;
+      this.UTIL.msjwsal('fire', 'success', 'Empresa Creada', false, false, false, 2000, true);
+      this.router.navigate(['']);
+    });
+
+    this.UTIL.msjwsal('fire', 'error', 'La base de datos no esta DISPONIBLE', false, false, false, 0, this.conecta);
   }
 }

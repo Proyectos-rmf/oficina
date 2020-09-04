@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { Empresa } from './../../models/empresa';
 import { UtilService } from './../../services/util.service';
 import { CrudService } from '../empresas.service';
 
@@ -25,17 +26,22 @@ export class DetalleEmpresaComponent implements OnInit {
   public Empresa$ = this.UTIL.ApuntadorAction$;
   public Error;
   private conecta = false;
+  public Empresamodel: Empresa[];
 
   constructor(private UTIL: UtilService, private fb: FormBuilder, private crudApi: CrudService, private router: Router ) { }
 
   ngOnInit(): void {
-     this.Empresa$.subscribe(res => { this.datos = res; });
-     if (this.datos) { this.imprimir_datos(1); }
+   this.listaEmpresas('empresa');
+   console.log('Checar ', this.Empresamodel);
+
+   this.Empresa$.subscribe(res => { this.datos = res; });
+   if (this.datos) { this.imprimir_datos(1); }
   }
 
   imprimir_datos(valor: number) {
     switch (valor) {
       case 1:
+        // this.Empresamodel = this.datos[1][0];
         const empresa = {
           nombre_Emp: this.datos[1][0],
           calle_Emp: this.datos[1][1],
@@ -80,6 +86,7 @@ export class DetalleEmpresaComponent implements OnInit {
   onReset(): void {
     this.empresaForm.reset();
   }
+
   nuevaEmpresa() {
     this.UTIL.msjwsal('carga');
     this.crudApi.creaEmpresa(this.empresaForm.value, 'empresa')
@@ -90,6 +97,18 @@ export class DetalleEmpresaComponent implements OnInit {
     });
 
     this.UTIL.msjwsal('fire', 'error', 'La base de datos no esta DISPONIBLE', false, false, false, 0, this.conecta);
+  }
+
+  listaEmpresas(coleccion: string) {
+    this.crudApi.TodasEmpresas(coleccion).subscribe(data => {
+
+      this.Empresamodel = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data
+        } as Empresa;
+      });
+    });
   }
 
 }

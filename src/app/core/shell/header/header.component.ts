@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent {
   public isLogged = false;
-
   // tslint:disable-next-line: variable-name
-  app_name = 'Empresa';
+  public app_name = 'Empresa';
 
 }

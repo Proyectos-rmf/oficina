@@ -8,7 +8,7 @@ import { CrudService } from '../empresas.service';
 @Component({
   selector: 'app-detalle-empresa',
   templateUrl: './detalle-empresa.component.html',
-  styleUrls: ['./detalle-empresa.component.css']
+  styleUrls: []
 })
 export class DetalleEmpresaComponent implements OnInit {
   empresaForm = this.fb.group({

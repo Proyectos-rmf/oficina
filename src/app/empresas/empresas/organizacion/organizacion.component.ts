@@ -29,7 +29,6 @@ export class OrganizacionComponent implements OnInit {
       setTimeout(() => {
         this.XLSarr$.subscribe(res => { this.datos = res; });
         this.UTIL.Variables(this.datos);
-        console.log(this.datos);
         this.cargar = true;
         this.desplegar = false;
       }, 100);

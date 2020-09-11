@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UtilService } from './services/util.service';
 import { Empresa } from './models/empresa';
 import { CrudService } from './empresas/empresas.service';
 
@@ -12,7 +13,7 @@ import { CrudService } from './empresas/empresas.service';
 export class AppComponent implements OnInit {
   Empresamodal: Empresa[];
 
-  constructor(private crudApi: CrudService, private router: Router) { }
+  constructor(private crudApi: CrudService, private router: Router, private UTIL: UtilService) { }
 
   ngOnInit(): void {
     this.listaEmpresas('empresa');
@@ -28,8 +29,12 @@ export class AppComponent implements OnInit {
       });
 
       if (this.Empresamodal[0]?.id) {
-        this.router.navigate(['empresas/empresa']);
-      }
+        this.UTIL.Variables(this.Empresamodal);
+        this.router.navigate(['empresas/elegir']);
+      } else {
+          console.log('LOGIN');
+          this.router.navigate(['empresas/empresa']);
+        }
     });
   }
 }

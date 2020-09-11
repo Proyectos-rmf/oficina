@@ -7,9 +7,10 @@ import { EmpresasComponent } from './empresas/empresas.component';
 import { LoginComponent } from '../core/admin/login/login.component';
 import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.component';
 import { OrganizacionComponent } from './empresas/organizacion/organizacion.component';
+import { ElegirComponent } from './empresas/organizacion/elegir.component';
 
 @NgModule({
-  declarations: [EmpresasComponent, LoginComponent, DetalleEmpresaComponent, OrganizacionComponent],
+  declarations: [EmpresasComponent, LoginComponent, DetalleEmpresaComponent, OrganizacionComponent, ElegirComponent],
   imports: [CommonModule, EmpresasRoutingModule, ReactiveFormsModule]
 })
 export class EmpresasModule { }

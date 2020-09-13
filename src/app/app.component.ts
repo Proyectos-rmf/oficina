@@ -11,7 +11,7 @@ import { CrudService } from './empresas/empresas.service';
   styleUrls: []
 })
 export class AppComponent implements OnInit {
-  Empresamodal: Empresa[];
+  public Empresamodal: Empresa[];
 
   constructor(private crudApi: CrudService, private router: Router, private UTIL: UtilService) { }
 
@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
       this.Empresamodal = data.map(e => {
         return {
           id: e.payload.doc.id,
+          elegir: false,
           ...e.payload.doc.data() as Empresa
         };
       });

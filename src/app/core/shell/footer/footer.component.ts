@@ -8,14 +8,14 @@ import { UtilService } from 'src/app/services/util.service';
 })
 export class FooterComponent implements OnInit {
 
-  public datos: any[][];
-  public Empresa$ = this.UTIL.ApuntadorAction$;
+  public datos: any[];
+  private Empresa$ = this.UTIL.ApuntadorAction$;
 
   constructor(private UTIL: UtilService) { }
 
   ngOnInit(): void {
     this.Empresa$.subscribe(res => { this.datos = res; });
-    if (this.datos) { console.log(this.datos[0][0]); } else { console.log('FOOTER'); }
+    if (this.datos) { console.log(this.datos); }
   }
 
 }

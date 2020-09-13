@@ -1,5 +1,6 @@
 export interface Empresa {
   id?: string;
+  elegir?: boolean;
   nombre_Emp?: string;
   calle_Emp?: string;
   colonia_Emp?: string;

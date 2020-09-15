@@ -9,13 +9,13 @@ import { UtilService } from 'src/app/services/util.service';
 export class FooterComponent implements OnInit {
 
   public datos: any[];
-  private Empresa$ = this.UTIL.ApuntadorAction$;
+  // private Empresa$ = this.UTIL.ApuntadorAction$;
 
   constructor(private UTIL: UtilService) { }
 
   ngOnInit(): void {
-    this.Empresa$.subscribe(res => { this.datos = res; });
-    if (this.datos) { console.log(this.datos); }
+    // this.Empresa$.subscribe(res => { this.datos = res; });
+    // if (this.datos) { console.log(this.datos); }
   }
 
 }

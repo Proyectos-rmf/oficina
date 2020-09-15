@@ -1,1 +1,5 @@
-<p>elegir works!</p>
+<select class="browser-default custom-select">
+  <option *ngFor="let dato of datos; let i = index" [value]="datos[i].id">
+    {{datos[i].nombre_Emp}}
+  </option>
+</select>

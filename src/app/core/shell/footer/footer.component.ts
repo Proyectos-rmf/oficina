@@ -4,7 +4,7 @@ import { UtilService } from 'src/app/services/util.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styles: []
+  styles: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
 

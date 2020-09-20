@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './components/app/app-routing.module';
+import { AppComponent } from './components/app/app.component';
+import { CoreModule } from './components/core/core.module';
 import { environment } from 'src/environments/environment';
 
 /* Importar FireBase */

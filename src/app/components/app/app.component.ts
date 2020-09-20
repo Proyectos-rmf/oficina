@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UtilService } from './services/util.service';
-import { Empresa } from './models/empresa';
-import { CrudService } from './empresas/empresas.service';
+import { UtilService } from '../../services/util.service';
+import { Empresa } from '../../models/empresa';
+import { CrudService } from '../empresas/empresas.service';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
       if (this.Empresamodal[0]?.id) {
         this.UTIL.Variables(this.Empresamodal);
-        this.router.navigate(['empresas/elegir']);
+        this.router.navigate(['empresas/buscar']);
       } else {
           console.log('LOGIN');
           this.router.navigate(['empresas/empresa']);

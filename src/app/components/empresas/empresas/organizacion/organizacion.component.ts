@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { XlsService } from '../../../services/xls.service';
-import { UtilService } from '../../../services/util.service';
+import { XlsService } from '../../../../services/xls.service';
+import { UtilService } from '../../../../services/util.service';
 
 declare var $: any;
 

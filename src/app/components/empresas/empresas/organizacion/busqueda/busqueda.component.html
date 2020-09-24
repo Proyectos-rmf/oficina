@@ -7,8 +7,17 @@
       </svg>
     </span>
   </div>
-  <input [formControl]="buscar" class="form-control" placeholder="Buscar Empresa ....">
+  <input class="form-control" placeholder="Buscar Empresa ...." (keyup)="actualizarbusqueda($event.target.value)">
 </div>
 
 
+<u>
+  <li *ngFor="let dato of datos | buscar:filtro_valor">
+    {{dato.nombre_Emp}}
+  </li>
+</u>
 
+<!--
+  [formControl]="buscar"
+  (keyup)="actualizarbusqueda($event.target.value)"
+-->

@@ -9,6 +9,8 @@ import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.compo
 import { OrganizacionComponent } from './empresas/organizacion/organizacion.component';
 import { ElegirComponent } from './empresas/organizacion/elegir.component';
 import { BusquedaComponent } from './empresas/organizacion/busqueda/busqueda.component';
+import { BuscarPipe } from '../../pipes/buscar.pipe';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { BusquedaComponent } from './empresas/organizacion/busqueda/busqueda.com
     DetalleEmpresaComponent,
     OrganizacionComponent,
     ElegirComponent,
-    BusquedaComponent],
+    BusquedaComponent,
+    BuscarPipe],
   imports: [CommonModule, EmpresasRoutingModule, ReactiveFormsModule, FormsModule]
 })
 export class EmpresasModule { }

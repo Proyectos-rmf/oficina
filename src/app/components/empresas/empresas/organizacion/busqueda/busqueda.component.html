@@ -7,15 +7,29 @@
       </svg>
     </span>
   </div>
-  <input class="form-control" placeholder="Buscar Empresa ...." (keyup)="actualizarbusqueda($event.target.value)">
+  <input type="search" class="form-control" placeholder="Buscar Empresa ...." (keyup)="actualizarbusqueda($event.target.value)">
 </div>
 
 
-<u>
-  <li *ngFor="let dato of datos | buscar:filtro_valor">
+<!--
+<div class="row">
+  <div class="col-12">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active"  *ngFor="let dato of datos | buscar:filtro_valor"
+        id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+        {{dato.nombre_Emp}}
+      </a>
+    </div>
+  </div>
+</div>
+-->
+
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let dato of datos | buscar:filtro_valor">
     {{dato.nombre_Emp}}
   </li>
-</u>
+</ul>
 
 <!--
   [formControl]="buscar"

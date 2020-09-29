@@ -7,7 +7,7 @@ import { EmpresasComponent } from './empresas/empresas.component';
 import { LoginComponent } from '../../components/core/admin/login/login.component';
 import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.component';
 import { OrganizacionComponent } from './empresas/organizacion/organizacion.component';
-import { ElegirComponent } from './empresas/organizacion/elegir.component';
+// import { ElegirComponent } from './empresas/organizacion/elegir.component';
 import { BusquedaComponent } from './empresas/organizacion/busqueda/busqueda.component';
 import { BuscarPipe } from '../../pipes/buscar.pipe';
 
@@ -18,7 +18,7 @@ import { BuscarPipe } from '../../pipes/buscar.pipe';
     LoginComponent,
     DetalleEmpresaComponent,
     OrganizacionComponent,
-    ElegirComponent,
+    // ElegirComponent,
     BusquedaComponent,
     BuscarPipe],
   imports: [CommonModule, EmpresasRoutingModule, ReactiveFormsModule, FormsModule]
